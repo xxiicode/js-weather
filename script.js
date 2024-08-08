@@ -6,6 +6,7 @@ const cityInput = document.getElementById('cityName');
 const buttonEng = document.getElementById('english')
 const buttonSpa = document.getElementById('espanol')
 const URL_base = 'https://api.openweathermap.org/data/2.5/weather'
+
 const translation = {
     en: {
         title: 'Another Weather App ⛅',
@@ -45,6 +46,7 @@ function showData(data) {
     const temperature = data.main ? data.main.temp : 'N/A';
     const humidity = data.main? data.main.humidity: 'N/A'
     const description = data.weather && data.weather.length > 0 ? data.weather[0].description : '';
+    const icon = data.weather ? data.weather[0].icon : ''
 
     const cityTitle = document.createElement('h2')
     cityTitle.textContent = cityName !== translation[lang].noCity ?  `${cityName}, ${cityCountry}` : translation[lang].noCity
@@ -52,11 +54,13 @@ function showData(data) {
     cityTemperature.textContent = temperature !== 'N/A' ? `${temperature} °C` : temperature;
     const cityHumidity = document.createElement('p')
     cityHumidity.textContent = humidity !== 'N/A' ? ` ${translation[lang].hum} :  ${humidity} %` : humidity;
-
+    const weatherIcon = document.createElement('img')
+    weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`
 
     const descriptionInfo = document.createElement('p')
     descriptionInfo.textContent = description
 
+    divContent.appendChild(weatherIcon)
     divContent.appendChild(cityTitle)
     divContent.appendChild(cityTemperature)
     divContent.appendChild(cityHumidity)
