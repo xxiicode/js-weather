@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="stylesheet" href="style.css">
-    <title>Another Weather App</title>
+    <title id="title">Another Weather App</title>
 </head>
 <body>
   <div class="container">
-    <h1>Another Weather App ⛅</h1>
-    <input type="text" id="ciudadEntrada" placeholder="Please, enter a city name">
-    <button id="botonBusqueda">Search</button>
-    <div id="datosClima"></div>
+    <div class="idiomas">
+      <button id="english" class="active">ENG</button>
+      <button id="espanol" class="">ESP</button>
+    </div>
+    <h1 id="heading">Another Weather App ⛅</h1>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" id="cityName" placeholder="Please, enter a city name">
+      <button type="submit" id="searchButton">Search</button>
+    </form>
+    <div id="weatherData"></div>
   </div>
   <script src="script.js"></script>
 </body>
