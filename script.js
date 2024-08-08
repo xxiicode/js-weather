@@ -54,13 +54,15 @@ function showData(data) {
     cityTemperature.textContent = temperature !== 'N/A' ? `${temperature} °C` : temperature;
     const cityHumidity = document.createElement('p')
     cityHumidity.textContent = humidity !== 'N/A' ? ` ${translation[lang].hum} :  ${humidity} %` : humidity;
-    const weatherIcon = document.createElement('img')
-    weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`
-
     const descriptionInfo = document.createElement('p')
     descriptionInfo.textContent = description
+    if ( cityName !== translation[lang].noCity ) {
+        const weatherIcon = document.createElement('img')
+        weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`
+        divContent.appendChild(weatherIcon)
+    }
 
-    divContent.appendChild(weatherIcon)
+    
     divContent.appendChild(cityTitle)
     divContent.appendChild(cityTemperature)
     divContent.appendChild(cityHumidity)
