@@ -1,4 +1,4 @@
-let local_api_key = '6be4ce7e804dc9e79cdd57582019131a'
+const local_api_key = '72a389530b92820cffdc35f468d8463f'
 let lang = 'en' // english by default
 const searchbutton = document.getElementById('searchButton')
 const divContent = document.getElementById('weatherData')
